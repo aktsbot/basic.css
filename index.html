@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>basic.css | A tiny css library built from min.css</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="build/basic.min.css" rel="stylesheet" />
+    <link href="docs.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+      <div class="container">
+        <a class="pagename" href="index.html">basic</a>
+        <a class="current" href="#docs">docs</a>
+        <a href="build/basic.css.zip">download</a>
+        <a href="https://github.com/aktsbot/basic.css">github</a>
+      </div>
+    </nav>
+    <button class="btn btn-sm btn-close">&times;</button>
+
+    <div class="container">
+      <h1>basic.css</h1>
+
+      <p>
+        basic.css is a tiny fork of the excellent
+        <a href="https://mincss.com">mincss</a> framework. All credits to Owen
+        Versteeg for creating min.
+      </p>
+
+      <div id="docs">
+        <h2>Buttons</h2>
+
+        <button class="btn">button</button>
+        <pre>&lt;button class="btn"&gt;button&lt;/button&gt;</pre>
+
+        <a class="btn">button</a>
+
+        <pre>&lt;a class="btn"&gt;button&lt;/a&gt;</pre>
+
+        <button class="btn btn-sm">small button</button>
+        <pre>&lt;button class="btn btn-sm"&gt;small button&lt;/button&gt;</pre>
+
+        <h2>Forms</h2>
+
+        <input type="text" placeholder="Your name" />
+        <br />
+        <textarea rows="3" placeholder="Address"></textarea>
+
+        <pre>&lt;input type="text"&gt;
+				<br>&lt;textarea rows="3"&gt;</pre>
+
+        <h2>Navbar</h2>
+        <nav class="nav" tabindex="-1" onclick="this.focus()">
+          <div class="container">
+            <a class="pagename current" href="#">Cool app</a>
+            <a href="#">One</a>
+            <a href="#">Two</a>
+            <a href="#">Three</a>
+            <a href="#">Four</a>
+          </div>
+        </nav>
+        <br />
+        <pre>&lt;nav class="nav" tabindex="-1" onclick="this.focus()"&gt;<br>    &lt;div class="container"&gt;<br>        &lt;a class="pagename current" href="#"&gt;Cool app&lt;/a&gt;<br>        &lt;a href="#"&gt;One&lt;/a&gt;<br>        &lt;a href="#"&gt;Two&lt;/a&gt; <br>        &lt;a href="#"&gt;Three&lt;/a&gt;<br>    &lt;/div&gt;<br>&lt;/nav&gt;<br>&lt;button class="btn-close btn btn-sm"&gt;&amp;times;&lt;/button&gt;</pre>
+      </div>
+
+      <h2>Tables</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Widgets Sold</th>
+            <th>Revenue (£)</th>
+            <th>Profit (£)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>5</td>
+            <td>10</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>10</td>
+            <td>20</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>500</td>
+            <td>1000</td>
+            <td>200</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br /><br />
+      <pre>
+&lt;table class="table"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;#&lt;/th&gt;
+			&lt;th&gt;Widgets Sold&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;5&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;2&lt;/td&gt;
+			&lt;td&gt;10&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;3&lt;/td&gt;
+			&lt;td&gt;500&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+				</pre
+      >
+
+      <h2>Grid</h2>
+      <div class="row">
+        <div class="col dark c12">12</div>
+      </div>
+      <div class="row">
+        <div class="col dark c11">11</div>
+        <div class="col light c1">1</div>
+      </div>
+      <div class="row">
+        <div class="col dark c10">10</div>
+        <div class="col light c2">2</div>
+      </div>
+      <div class="row">
+        <div class="col dark c9">9</div>
+        <div class="col light c3">3</div>
+      </div>
+      <div class="row">
+        <div class="col dark c8">8</div>
+        <div class="col light c4">4</div>
+      </div>
+      <div class="row">
+        <div class="col dark c7">7</div>
+        <div class="col light c5">5</div>
+      </div>
+      <div class="row">
+        <div class="col dark c6">6</div>
+        <div class="col light c6">6</div>
+      </div>
+      <div class="row">
+        <div class="col dark c5">5</div>
+        <div class="col light c7">7</div>
+      </div>
+      <div class="row">
+        <div class="col dark c4">4</div>
+        <div class="col light c8">8</div>
+      </div>
+      <div class="row">
+        <div class="col dark c3">3</div>
+        <div class="col light c9">9</div>
+      </div>
+      <div class="row">
+        <div class="col dark c2">2</div>
+        <div class="col light c10">10</div>
+      </div>
+      <div class="row">
+        <div class="col dark c1">1</div>
+        <div class="col light c11">11</div>
+      </div>
+      <div class="row">
+        <div class="col light c12">12</div>
+      </div>
+
+      <pre>&lt;div class="row"&gt;<br>    &lt;div class="col c12"&gt;12&lt;/div&gt;<br>&lt;/div&gt;
+					<br>&lt;div class="row"&gt;<br>    &lt;div class="col c4"&gt;4&lt;/div&gt;<br>    &lt;div class="col c8"&gt;8&lt;/div&gt;<br>&lt;/div&gt;
+			</pre>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <footer>
+      <!-- Yeah I'm using the center tag. Sue me, semantic HTML nerd! -->
+      <center>&#9670;</center>
+      <center>&mdash;&mdash;</center>
+      <center>&#9829;</center>
+    </footer>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.dark {
+  background-color: rgb(172, 172, 172);
+}
+
+.light {
+  background-color: rgb(223, 223, 223);
+}
+
+.col {
+  text-align: center;
+}
+
+h2 {
+  border-bottom: 2px solid;
+}

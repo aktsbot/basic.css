@@ -1,0 +1,28 @@
+.btn {
+  background: #999;
+  border-radius: 6px; /* rounded corners */
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block; /* Enables non-inline-block elements like <div>s to be buttons */
+  margin: 2px 0;
+  padding: 12px 30px 14px;
+}
+
+.btn:hover {
+  background: #888;
+}
+
+.btn:active,
+.btn:focus {
+  background: #777;
+}
+
+.btn-sm {
+  border-radius: 4px; /* rounded corners */
+  padding: 10px 14px 11px;
+}
+
+a.btn {
+  text-decoration: none;
+}
