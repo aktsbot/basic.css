@@ -45,7 +45,7 @@ rm -rf build/*.css
 for cssFile in src/*.css
 do
   echo "css: $cssFile"
-  awk "$cssCommentRemover" "$cssFile" >> "$TEMP_FILE"
+  awk "$cssCommentRemover" "$cssFile" | tr -s ' ' >> "$TEMP_FILE"
 done
 
 # make everything in oneline
@@ -53,4 +53,8 @@ cat "$TEMP_FILE" | tr -d '\n' >> "$BUILD_FILE"
 
 # remove temp files
 rm "$TEMP_FILE"
+
+# finding gz size of the bundle now
+GZ_SIZE=$(gzip -9 -c "$BUILD_FILE" | wc -c | numfmt --to=iec-i --suffix=B)
+echo "Bundle size is: $GZ_SIZE"
 
