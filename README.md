@@ -1,6 +1,7 @@
 # basic.css
 
-A tiny fork of Owen Versteeg's [mincss](https://mincss.com/).
+A tiny fork of Owen Versteeg's [mincss](https://mincss.com/), currently
+at 856B gzipped.
 
 Note: All credits to the creator of mincss. I'm using basic.css
 for my tiny hacked up projects and thought it'd be nice if I could
