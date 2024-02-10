@@ -1,8 +1,10 @@
 #!/bin/bash
 #
 # Build script for basic.css
-#
-#
+# Invoke: ./build.sh zip
+# 
+# Running ./build.sh just generates build/basic.min.css 
+# Running ./build.sh zip does the same above, but makes a zip archive
 
 TEMP_FILE="build/temp.css"
 BUILD_FILE="build/basic.min.css"
@@ -38,8 +40,9 @@ EOF
 # End of AWK Scripts           #
 ################################
 
-# clear old build files
+# clear old build and zip files
 rm -rf build/*.css
+rm -rf build/*.zip
 
 # for every css file, nuke the comments
 for cssFile in src/*.css
@@ -66,4 +69,16 @@ rm "$TEMP_FILE"
 # finding gz size of the bundle now
 GZ_SIZE=$(gzip -9 -c "$BUILD_FILE" | wc -c | numfmt --to=iec-i --suffix=B)
 echo "Bundle size after gz is: $GZ_SIZE"
+
+# do we need to make a zip file
+if [ "$1" == "zip" ]
+then
+  zip basic.css.zip build/basic.min.css src/*.css docs.css favicon.ico index.html
+  mv basic.css.zip build/.
+  echo "Made zip file"
+  echo "Check build folder"
+fi
+
+
+
 
