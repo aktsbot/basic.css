@@ -34,6 +34,6 @@ $ ./build.sh zip
 
 ## TODO:
 
-- do a 1.0 release
-- [done] bring down bundle size. the sed liners in build.sh are not up to par.
-- dark mode?
+- [x] do a 1.0 release
+- [x] bring down bundle size. the sed liners in build.sh are not up to par.
+- [ ] dark mode?
