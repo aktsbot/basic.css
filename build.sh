@@ -51,20 +51,20 @@ do
   awk "$cssCommentRemover" "$cssFile" | tr -s ' ' >> "$TEMP_FILE"
 done
 
-# make foo {}
-# into foo{}
-sed -i 's/\ {/{/g' "$TEMP_FILE"
-# make foo{ prop into foo{prop
-sed -i 's/{ //g' "$TEMP_FILE"
-# make prop: value into prop:value
-sed -i 's/:\ /:/g' "$TEMP_FILE"
-sed -i 's/;\ /;/g' "$TEMP_FILE"
-
 # make everything in oneline
 cat "$TEMP_FILE" | tr -d '\n' >> "$BUILD_FILE"
 
 # remove temp files
 rm "$TEMP_FILE"
+
+# make foo {}
+# into foo{}
+sed -i 's/\ {/{/g' "$BUILD_FILE"
+# make foo{ prop into foo{prop
+sed -i 's/{ /{/g' "$BUILD_FILE"
+# make prop: value into prop:value
+sed -i 's/:\ /:/g' "$BUILD_FILE"
+sed -i 's/;\ /;/g' "$BUILD_FILE"
 
 # finding gz size of the bundle now
 GZ_SIZE=$(gzip -9 -c "$BUILD_FILE" | wc -c | numfmt --to=iec-i --suffix=B)
