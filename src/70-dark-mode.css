@@ -1,0 +1,36 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  a {
+    color: #3391ff;
+  }
+
+  .nav,
+  .nav .current,
+  .nav a:hover {
+    background: #444;
+    color: #fff;
+  }
+
+  .nav a {
+    color: #bbb;
+  }
+
+  .btn.btn-close {
+    background: #444;
+  }
+
+  textarea,
+  input,
+  select {
+    color: #aaa;
+    border-color: #aaa;
+  }
+
+  .table tbody > :nth-child(2n-1) {
+    background: #444;
+  }
+}

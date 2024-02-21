@@ -17,3 +17,13 @@ h2 {
 pre {
   overflow-x: auto;
 }
+
+@media (prefers-color-scheme: dark) {
+  .dark {
+    background-color: #444;
+  }
+
+  .light {
+    background-color: #777;
+  }
+}
