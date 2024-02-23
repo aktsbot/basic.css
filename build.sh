@@ -8,6 +8,11 @@
 
 TEMP_FILE="build/temp.css"
 BUILD_FILE="build/basic.min.css"
+
+# skip the files that end with `--extras.css` when generating the base build
+BASE_CSS=`/bin/ls --ignore="*--extras.css" src`
+ALL_CSS=`/bin/ls src`
+
 ## awk script to remove comments from the css file
 #https://stackoverflow.com/questions/48344193/removing-css-comments-with-grep
 #https://stackoverflow.com/questions/15020000/embedding-awk-in-a-shell-script
