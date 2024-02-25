@@ -7,8 +7,7 @@
 # Running ./build.sh zip does the same above, but makes a zip archive
 
 TEMP_FILE="build/temp.css"
-BUILD_BASE_FILE="build/basic.min.css"
-BUILD_ALL_FILE="build/basic.all.min.css"
+BUILD_FILE="build/basic.min.css"
 
 # skip the files that end with `--extras.css` when generating the base build
 BASE_CSS=`/bin/ls --ignore="*--extras.css" src`
@@ -50,41 +49,31 @@ EOF
 rm -rf build/*.css
 rm -rf build/*.zip
 
-build_css () {
-  if [ -f "TEMP_FILE" ]
-  then
-    rm "$TEMP_FILE"
-  fi
+# for every css file, nuke the comments
+for cssFile in src/*.css
+do
+  echo "css: $cssFile"
+  awk "$cssCommentRemover" "$cssFile" | tr -s ' ' >> "$TEMP_FILE"
+done
 
-  # for every css file, nuke the comments
-  for cssFile in "$1"
-  do
-    echo "css: $cssFile"
-    awk "$cssCommentRemover" "src/$cssFile" | tr -s ' ' >> "$TEMP_FILE"
-  done
-  
-  # make everything in oneline
-  cat "$TEMP_FILE" | tr -d '\n' >> "$2"
-  
-  # remove temp files
-  rm "$TEMP_FILE"
-  
-  # make foo {}
-  # into foo{}
-  sed -i 's/\ {/{/g' "$2"
-  # make foo{ prop into foo{prop
-  sed -i 's/{ /{/g' "$2"
-  # make prop: value into prop:value
-  sed -i 's/:\ /:/g' "$2"
-  sed -i 's/;\ /;/g' "$2"
-  
-  # finding gz size of the bundle now
-  GZ_SIZE=$(gzip -9 -c "$2" | wc -c | numfmt --to=iec-i --suffix=B)
-  echo "Bundle size after gz is: $GZ_SIZE"
-}
+# make everything in oneline
+cat "$TEMP_FILE" | tr -d '\n' >> "$BUILD_FILE"
 
-build_css "$BASE_CSS" "$BUILD_BASE_FILE"
-build_css "$ALL_CSS" "$BUILD_ALL_FILE"
+# remove temp files
+rm "$TEMP_FILE"
+
+# make foo {}
+# into foo{}
+sed -i 's/\ {/{/g' "$BUILD_FILE"
+# make foo{ prop into foo{prop
+sed -i 's/{ /{/g' "$BUILD_FILE"
+# make prop: value into prop:value
+sed -i 's/:\ /:/g' "$BUILD_FILE"
+sed -i 's/;\ /;/g' "$BUILD_FILE"
+
+# finding gz size of the bundle now
+GZ_SIZE=$(gzip -9 -c "$BUILD_FILE" | wc -c | numfmt --to=iec-i --suffix=B)
+echo "Bundle size after gz is: $GZ_SIZE"
 
 # do we need to make a zip file
 if [ "$1" == "zip" ]
@@ -94,6 +83,7 @@ then
   echo "Made zip file"
   echo "Check build folder"
 fi
+
 
 
 
